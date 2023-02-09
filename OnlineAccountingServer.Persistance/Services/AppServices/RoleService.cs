@@ -18,7 +18,7 @@ namespace OnlineAccountingServer.Persistance.Services.AppServices
             _mapper = mapping;
         }
 
-        public async Task AddAsync(CreateRoleRequest request)
+        public async Task AddAsync(CreateRoleCommand request)
         {
             AppRole appRole = _mapper.Map<AppRole>(request);
             appRole.Id = Guid.NewGuid().ToString();

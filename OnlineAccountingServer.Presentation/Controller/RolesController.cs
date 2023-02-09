@@ -15,28 +15,28 @@ namespace OnlineAccountingServer.Presentation.Controller
 
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateRole(CreateRoleRequest request)
+        public async Task<IActionResult> CreateRole(CreateRoleCommand request)
         {
-            CreateRoleResponse response = await _mediatr.Send(request);
+            CreateRoleCommandResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
         [HttpGet("[action]")]
         public async Task<IActionResult> GetRoles()
         {
-            GetAllRolesRequest request = new();
-            GetAllRolesResponse response = await _mediatr.Send(request); 
+            GetAllRolesQuery request = new();
+            GetAllRolesQueryResponse response = await _mediatr.Send(request); 
             return Ok(response);
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> UpdateRoles(UpdateRoleRequest request)
+        public async Task<IActionResult> UpdateRoles(UpdateRoleCommand request)
         {
-            UpdateRoleResponse response = await _mediatr.Send(request);
+            UpdateRoleCommandResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> DeleteRole(DeleteRoleRequest request)
+        public async Task<IActionResult> DeleteRole(DeleteRoleCommand request)
         {
-            DeleteRoleResponse response = await _mediatr.Send(request);
+            DeleteRoleCommandResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
     }

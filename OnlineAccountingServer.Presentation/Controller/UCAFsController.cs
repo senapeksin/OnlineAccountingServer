@@ -11,9 +11,9 @@ namespace OnlineAccountingServer.Presentation.Controller
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateUCAF(CreateUCAFRequest request)
+        public async Task<IActionResult> CreateUCAF(CreateUCAFCommand request)
         {
-            CreateUCAFResponse response = await _mediatr.Send(request);
+            CreateUCAFCommandResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
     }

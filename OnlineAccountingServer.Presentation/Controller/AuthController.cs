@@ -14,9 +14,9 @@ namespace OnlineAccountingServer.Presentation.Controller
 
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Login(LoginRequest request)
+        public async Task<IActionResult> Login(LoginCommand request)
         {
-           LoginResponse response=  await _mediatr.Send(request);
+           LoginCommandResponse response=  await _mediatr.Send(request);
             return Ok(response);
         }
     }
