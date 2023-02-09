@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using OnlineAccountingServer.WebApi.Middleware;
 
 namespace OnlineAccountingServer.WebApi.Configurations
 {
@@ -9,6 +10,7 @@ namespace OnlineAccountingServer.WebApi.Configurations
         {
             services.AddControllers().AddApplicationPart(typeof(OnlineAccountingServer.Presentation.AssemblyReference).Assembly); // artık controller'ı presentation'da kullananbilirim
 
+            services.AddScoped<ExceptionMiddleware>();
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(setup =>
