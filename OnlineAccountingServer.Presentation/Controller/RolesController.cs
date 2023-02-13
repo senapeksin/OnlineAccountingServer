@@ -24,7 +24,7 @@ namespace OnlineAccountingServer.Presentation.Controller
         public async Task<IActionResult> GetRoles()
         {
             GetAllRolesQuery request = new();
-            GetAllRolesQueryResponse response = await _mediatr.Send(request); 
+            GetAllRolesQueryResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
         [HttpPost("[action]")]

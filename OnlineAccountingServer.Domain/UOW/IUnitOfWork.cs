@@ -5,6 +5,6 @@ namespace OnlineAccountingServer.Domain.UOW
     public interface IUnitOfWork
     {
         void SetDbContextInstance(DbContext context);
-        Task<int> SaveChangesAsync();
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

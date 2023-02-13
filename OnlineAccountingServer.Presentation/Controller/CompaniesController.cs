@@ -13,17 +13,17 @@ namespace OnlineAccountingServer.Presentation.Controller
 
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateCompany(CreateCompanyCommand request)
+        public async Task<IActionResult> CreateCompany(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
-           CreateCompanyCommandResponse response = await _mediatr.Send(request);
-           return Ok(response);
+            CreateCompanyCommandResponse response = await _mediatr.Send(request, cancellationToken);
+            return Ok(response);
         }
 
         [HttpGet("[action]")]
         public async Task<IActionResult> MigrateCompanyDatabeses()
         {
             MigrateCompanyDatabasesCommand request = new();
-            MigrateCompanyDatabasesCommandResponse response = await _mediatr.Send(request); 
+            MigrateCompanyDatabasesCommandResponse response = await _mediatr.Send(request);
             return Ok(response);
         }
     }
